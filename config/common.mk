@@ -104,14 +104,6 @@ include vendor/xosp/config/xosp_audio.mk
 PRODUCT_PACKAGES += \
     bootanimation.zip
 
-# SuperSU	
-ifeq ($(ROOT_METHOD),supersu)
-PRODUCT_COPY_FILES += \
-   vendor/xosp/prebuilt/common/etc/UPDATE-SuperSU.zip:install/supersu/supersu.zip \
-   vendor/xosp/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
-WITH_SUPERSU := true
-endif
-
 # Magisk
 ifeq ($(ROOT_METHOD),magisk)
 PRODUCT_COPY_FILES += \
@@ -274,7 +266,7 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.xosp.releasetype=$(XOSP_BUILDTYPE) \
   ro.modversion=$(XOSP_VERSION) \
-  ro.xosp.base.version=XOSP-N \
+  ro.xosp.base.version=XOSP-N-REBASE \
   ro.xospapps.signature=$(XOSPAPPS_SIGNATURE)
 
 XOSP_DISPLAY_VERSION := $(XOSP_VERSION)
